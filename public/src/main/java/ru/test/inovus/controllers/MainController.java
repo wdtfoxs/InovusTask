@@ -10,8 +10,6 @@ public class MainController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public RedirectView redirectMain(){
-        RedirectView redirectView = new RedirectView();
-        redirectView.setUrl("/welcome");
-        return redirectView;
+        return new RedirectView("/welcome");
     }
 }

@@ -12,8 +12,12 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/sign-in")
 public class LoginController {
 
+    private final HttpServletRequest request;
+
     @Autowired
-    private HttpServletRequest request;
+    public LoginController(HttpServletRequest request) {
+        this.request = request;
+    }
 
     @RequestMapping(method = RequestMethod.GET)
     public String login(Boolean error){

@@ -1,7 +1,5 @@
 package ru.test.inovus.controllers;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,9 +14,12 @@ public class WelcomeController {
 
     private static final String CURRENT_TIME = "curTime";
 
+    private final HttpServletRequest request;
 
     @Autowired
-    private HttpServletRequest request;
+    public WelcomeController(HttpServletRequest request) {
+        this.request = request;
+    }
 
     @RequestMapping(value = "/welcome",method = RequestMethod.GET)
     public String welcomePage(){
